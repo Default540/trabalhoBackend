@@ -17,9 +17,6 @@ Backend do projeto desenvolvido com Node.js, Express e EJS.
 - Filtros de pesquisa (nome, email, status)
 - Exportação de dados para Excel
 
-bash
-Copiar código
-
 ## Executando
 
 ```bash
