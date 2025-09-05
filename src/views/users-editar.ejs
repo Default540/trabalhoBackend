@@ -1,0 +1,84 @@
+<%- include("includes/header.ejs", {link: ["/users/lista"]}) %>
+<!-- User Form (static, no JS) -->
+<section class="mt-8">
+    <div class="grid gap-4 md:grid-cols-3">
+        <div class="md:col-span-2 bg-white border rounded-2xl p-5 shadow-sm">
+            <h2 class="text-lg font-semibold mb-4">Edit User</h2>
+            <form class="grid grid-cols-1 sm:grid-cols-2 gap-4" action="/users/edit" method="post">
+                <input type="hidden" name="id" value="<%= dados.user.id %>">
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">Full Name</label>
+                    <input value="<%= dados.user.name %>" type="text" name="name" class="insert w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="Jane Doe" />
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">Email</label>
+                    <input value="<%= dados.user.email %>" type="email" name="email" class="insert w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="jane@example.com" />
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">Role</label>
+                    <select name="role" class="insert w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200">
+                        
+                        <option>Selecione uma opção</option>
+                        <option <%= dados.user.role == "VIEWER"? "selected": ""  %> value="VIEWER">Viewer</option>
+                        <option <%= dados.user.role == "EDITOR"? "selected": ""  %> value="EDITOR">Editor</option>
+                        <option <%= dados.user.role == "MANAGER"? "selected": ""  %> value="MANAGER">Manager</option>
+                        <option <%= dados.user.role == "ADMIN"? "selected": ""  %> value="ADMIN">Admin</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">Status</label>
+                    <select name="status" class="insert w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200">
+                        <option selected>Selecione uma opção</option>
+                        <option <%= dados.user.status == "ACTIVE"? "selected": ""  %> value="ACTIVE">Active</option>
+                        <option <%= dados.user.status == "INVITED"? "selected": ""  %> value="INVITED">Invited</option>
+                        <option <%= dados.user.status == "SUSPENDED"? "selected": ""  %> value="SUSPENDED">Suspended</option>
+                        <option <%= dados.user.status == "INACTIVE"? "selected": ""  %> value="INACTIVE">Inactive</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">Username</label>
+                    <input value="<%= dados.user.username %>" name="username" type="text" class="insert w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="@" />
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">Current Password</label>
+                    <input name="currentPassword" type="password" class="insert w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="••••••••" />
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">New Password</label>
+                    <input name="password" type="password" class="insert w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="••••••••" />
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">Confirm Password</label>
+                    <input name="confirmPassword" type="password" class="insert w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="••••••••" />
+                </div>
+                
+                <% if (dados.errors?.length > 0) { %>
+                    <div>
+                        <% dados.errors.forEach(err => { %>
+                            <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium text-red-700 bg-red-100"><span class="size-1.5 rounded-full bg-red-700"></span><%= err %></span>
+                            <br>
+                        <% }) %>
+                    </div>
+                <% } %>
+
+
+                <div class="sm:col-span-2 flex items-center justify-end gap-2 pt-2">
+                    <button type="reset" class="rounded-xl border px-4 py-2 text-sm hover:bg-gray-50">Cancel</button>
+                    <button type="submit" class="insert rounded-xl bg-black text-white px-4 py-2 text-sm">Save</button>
+                </div>
+            </form>
+        </div>
+            
+        <div class="bg-white border rounded-2xl p-5 shadow-sm">
+            <h3 class="text-sm font-semibold mb-3">Tips</h3>
+            <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                <li>This is purely static HTML/CSS; wire it up with your framework or vanilla JS.</li>
+                <li>Buttons and inputs are styled with Tailwind classes.</li>
+                <li>Table is horizontally scrollable on small screens.</li>
+                <li>Replace placeholder data with your real users.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<%- include("includes/footer.ejs") %>

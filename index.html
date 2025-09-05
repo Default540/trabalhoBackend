@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple User CRUD – Tailwind</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 antialiased">
+    <header class="border-b bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-semibold tracking-tight">User Management</h1>
+        <div class="flex items-center gap-2">
+          <button class="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2 text-sm font-medium hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4"><path d="M12 4.5a.75.75 0 0 1 .75.75v6h6a.75.75 0 0 1 0 1.5h-6v6a.75.75 0 0 1-1.5 0v-6h-6a.75.75 0 0 1 0-1.5h6v-6A.75.75 0 0 1 12 4.5Z"/></svg>
+            Add User
+          </button>
+          <button class="inline-flex items-center gap-2 rounded-xl bg-black text-white px-3 py-2 text-sm font-medium hover:bg-gray-800">
+            Export
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-6">
+      <!-- Filters / Toolbar (static) -->
+      <section class="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="relative">
+          <input type="text" placeholder="Search users..." class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-4 focus:ring-gray-200" />
+          <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-gray-500"><path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 1 0 13.5 6.75 6.75 0 0 1 0-13.5Zm0 1.5a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5Zm8.03 13.28a.75.75 0 1 1-1.06 1.06l-3.25-3.25a.75.75 0 0 1 1.06-1.06l3.25 3.25Z" clip-rule="evenodd"/></svg>
+          </div>
+        </div>
+        <select class="rounded-2xl border border-gray-300 bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-4 focus:ring-gray-200">
+          <option value="">All Roles</option>
+          <option>Admin</option>
+          <option>Manager</option>
+          <option>Editor</option>
+          <option>Viewer</option>
+        </select>
+        <select class="rounded-2xl border border-gray-300 bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-4 focus:ring-gray-200">
+          <option value="">Any Status</option>
+          <option>Active</option>
+          <option>Invited</option>
+          <option>Suspended</option>
+        </select>
+        <select class="rounded-2xl border border-gray-300 bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-4 focus:ring-gray-200">
+          <option>Sort: Newest</option>
+          <option>Sort: Oldest</option>
+          <option>Sort: A → Z</option>
+          <option>Sort: Z → A</option>
+        </select>
+      </section>
+
+      <!-- Users Table -->
+      <section class="bg-white border rounded-2xl shadow-sm">
+        <div class="overflow-x-auto rounded-2xl">
+          <table class="min-w-full text-left align-middle">
+            <thead class="bg-gray-50 text-xs uppercase tracking-wider text-gray-500">
+              <tr>
+                <th class="px-4 py-3">User</th>
+                <th class="px-4 py-3">Email</th>
+                <th class="px-4 py-3">Role</th>
+                <th class="px-4 py-3">Status</th>
+                <th class="px-4 py-3">Created</th>
+                <th class="px-4 py-3 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <!-- Row 1 -->
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <span class="inline-flex size-9 items-center justify-center rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">VM</span>
+                    <div>
+                      <div class="font-medium">Vinícius Machado</div>
+                      <div class="text-xs text-gray-500">@vinimach</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-4 py-3">vinicius@example.com</td>
+                <td class="px-4 py-3">
+                  <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium">Admin</span>
+                </td>
+                <td class="px-4 py-3">
+                  <span class="inline-flex items-center gap-1 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-700">
+                    <span class="size-1.5 rounded-full bg-green-600"></span>
+                    Active
+                  </span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-600">2025-07-04</td>
+                <td class="px-4 py-3">
+                  <div class="flex items-center justify-end gap-2">
+                    <a href="#" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-50">Edit</a>
+                    <button class="rounded-xl bg-red-50 px-3 py-1.5 text-sm text-red-700 hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <span class="inline-flex size-9 items-center justify-center rounded-full bg-pink-100 text-pink-700 text-sm font-semibold">AS</span>
+                    <div>
+                      <div class="font-medium">Ana Souza</div>
+                      <div class="text-xs text-gray-500">@anasz</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-4 py-3">ana.souza@example.com</td>
+                <td class="px-4 py-3">
+                  <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium">Editor</span>
+                </td>
+                <td class="px-4 py-3">
+                  <span class="inline-flex items-center gap-1 rounded-full bg-yellow-100 px-2.5 py-1 text-xs font-medium text-yellow-800">
+                    <span class="size-1.5 rounded-full bg-yellow-500"></span>
+                    Invited
+                  </span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-600">2025-05-18</td>
+                <td class="px-4 py-3">
+                  <div class="flex items-center justify-end gap-2">
+                    <a href="#" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-50">Edit</a>
+                    <button class="rounded-xl bg-red-50 px-3 py-1.5 text-sm text-red-700 hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 3 -->
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <span class="inline-flex size-9 items-center justify-center rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">JR</span>
+                    <div>
+                      <div class="font-medium">João Ribeiro</div>
+                      <div class="text-xs text-gray-500">@jrib</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-4 py-3">joao.ribeiro@example.com</td>
+                <td class="px-4 py-3">
+                  <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium">Manager</span>
+                </td>
+                <td class="px-4 py-3">
+                  <span class="inline-flex items-center gap-1 rounded-full bg-gray-200 px-2.5 py-1 text-xs font-medium text-gray-700">
+                    <span class="size-1.5 rounded-full bg-gray-500"></span>
+                    Suspended
+                  </span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-600">2024-12-01</td>
+                <td class="px-4 py-3">
+                  <div class="flex items-center justify-end gap-2">
+                    <a href="#" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-50">Edit</a>
+                    <button class="rounded-xl bg-red-50 px-3 py-1.5 text-sm text-red-700 hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 4 -->
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <span class="inline-flex size-9 items-center justify-center rounded-full bg-amber-100 text-amber-700 text-sm font-semibold">LC</span>
+                    <div>
+                      <div class="font-medium">Luiza Carvalho</div>
+                      <div class="text-xs text-gray-500">@luicarv</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-4 py-3">luiza.c@example.com</td>
+                <td class="px-4 py-3">
+                  <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium">Viewer</span>
+                </td>
+                <td class="px-4 py-3">
+                  <span class="inline-flex items-center gap-1 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-700">
+                    <span class="size-1.5 rounded-full bg-green-600"></span>
+                    Active
+                  </span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-600">2023-08-11</td>
+                <td class="px-4 py-3">
+                  <div class="flex items-center justify-end gap-2">
+                    <a href="#" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-50">Edit</a>
+                    <button class="rounded-xl bg-red-50 px-3 py-1.5 text-sm text-red-700 hover:bg-red-100">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination (static) -->
+        <div class="flex items-center justify-between px-4 py-3 border-t bg-gray-50">
+          <p class="text-sm text-gray-600">Showing <span class="font-medium">1–10</span> of <span class="font-medium">42</span> users</p>
+          <nav class="inline-flex items-center gap-1">
+            <a href="#" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-100">Previous</a>
+            <a href="#" class="rounded-xl bg-black text-white px-3 py-1.5 text-sm">1</a>
+            <a href="#" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-100">2</a>
+            <a href="#" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-100">3</a>
+            <a href="#" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-100">Next</a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- User Form (static, no JS) -->
+      <section class="mt-8">
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="md:col-span-2 bg-white border rounded-2xl p-5 shadow-sm">
+            <h2 class="text-lg font-semibold mb-4">Create / Edit User</h2>
+            <form class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm text-gray-600 mb-1">Full Name</label>
+                <input type="text" class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="Jane Doe" />
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-1">Email</label>
+                <input type="email" class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="jane@example.com" />
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-1">Role</label>
+                <select class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200">
+                  <option>Viewer</option>
+                  <option>Editor</option>
+                  <option>Manager</option>
+                  <option>Admin</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-1">Status</label>
+                <select class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200">
+                  <option>Active</option>
+                  <option>Invited</option>
+                  <option>Suspended</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-1">Password</label>
+                <input type="password" class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="••••••••" />
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-1">Confirm Password</label>
+                <input type="password" class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-4 focus:ring-gray-200" placeholder="••••••••" />
+              </div>
+              <div class="sm:col-span-2 flex items-center justify-end gap-2 pt-2">
+                <button type="reset" class="rounded-xl border px-4 py-2 text-sm hover:bg-gray-50">Cancel</button>
+                <button type="button" class="rounded-xl bg-black text-white px-4 py-2 text-sm">Save</button>
+              </div>
+            </form>
+          </div>
+          <div class="bg-white border rounded-2xl p-5 shadow-sm">
+            <h3 class="text-sm font-semibold mb-3">Tips</h3>
+            <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+              <li>This is purely static HTML/CSS; wire it up with your framework or vanilla JS.</li>
+              <li>Buttons and inputs are styled with Tailwind classes.</li>
+              <li>Table is horizontally scrollable on small screens.</li>
+              <li>Replace placeholder data with your real users.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-4 py-10 text-center text-xs text-gray-500">
+      Built with Tailwind CSS – no JavaScript included.
+    </footer>
+  </body>
+</html>

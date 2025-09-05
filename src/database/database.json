@@ -1,0 +1,344 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Vinicius Fritzen Machado",
+      "username": "@vfmachado",
+      "role": "ADMIN",
+      "status": "ACTIVE",
+      "email": "vinicius.machado@riogrande.ifrs.edu.br",
+      "createdAt": "2025-08-26",
+      "password": "12121212"
+    },
+    {
+      "id": 2,
+      "name": "Theodoro Araujo Fritzen",
+      "username": "@theo",
+      "role": "MANAGER",
+      "status": "SUSPENDED",
+      "email": "vinicius.machado@riogrande.ifrs.edu.br",
+      "createdAt": "2024-05-05",
+      "password": "12121212"
+    },
+    {
+      "id": 3,
+      "name": "David Maiato",
+      "username": "@david",
+      "role": "EDITOR",
+      "status": "INACTIVE",
+      "email": "david.maioto@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2025-08-26",
+      "password": "12121212"
+    },
+    {
+      "id": 4,
+      "name": "João da Silva",
+      "username": "@joao",
+      "role": "VIEWER",
+      "status": "INVITED",
+      "email": "joao.silva@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-02-23",
+      "password": "12121212"
+    },
+    {
+      "id": 5,
+      "name": "Maria Oliveira",
+      "username": "@maria",
+      "role": "ADMIN",
+      "status": "ACTIVE",
+      "email": "maria.oliveira@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-01",
+      "password": "12345678"
+    },
+    {
+      "id": 6,
+      "name": "Pedro Santos",
+      "username": "@pedro",
+      "role": "MANAGER",
+      "status": "SUSPENDED",
+      "email": "pedro.santos@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-02",
+      "password": "abcdef12"
+    },
+    {
+      "id": 7,
+      "name": "Ana Costa",
+      "username": "@ana",
+      "role": "EDITOR",
+      "status": "ACTIVE",
+      "email": "ana.costa@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-03",
+      "password": "qwerty12"
+    },
+    {
+      "id": 8,
+      "name": "Lucas Pereira",
+      "username": "@lucas",
+      "role": "VIEWER",
+      "status": "INVITED",
+      "email": "lucas.pereira@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-04",
+      "password": "senha123"
+    },
+    {
+      "id": 9,
+      "name": "Juliana Fernandes",
+      "username": "@juliana",
+      "role": "ADMIN",
+      "status": "INACTIVE",
+      "email": "juliana.fernandes@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-05",
+      "password": "juliana12"
+    },
+    {
+      "id": 10,
+      "name": "Rafael Almeida",
+      "username": "@rafael",
+      "role": "EDITOR",
+      "status": "ACTIVE",
+      "email": "rafael.almeida@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-06",
+      "password": "rafa1234"
+    },
+    {
+      "id": 11,
+      "name": "Fernanda Gomes",
+      "username": "@fernanda",
+      "role": "VIEWER",
+      "status": "INVITED",
+      "email": "fernanda.gomes@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-07",
+      "password": "12341234"
+    },
+    {
+      "id": 12,
+      "name": "Diego Rocha",
+      "username": "@diego",
+      "role": "MANAGER",
+      "status": "ACTIVE",
+      "email": "diego.rocha@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-08",
+      "password": "diego2023"
+    },
+    {
+      "id": 13,
+      "name": "Camila Martins",
+      "username": "@camila",
+      "role": "ADMIN",
+      "status": "SUSPENDED",
+      "email": "camila.martins@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-09",
+      "password": "camila89"
+    },
+    {
+      "id": 14,
+      "name": "Gustavo Lima",
+      "username": "@gustavo",
+      "role": "EDITOR",
+      "status": "ACTIVE",
+      "email": "gustavo.lima@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-10",
+      "password": "gustavo10"
+    },
+    {
+      "id": 15,
+      "name": "Patrícia Souza",
+      "username": "@patricia",
+      "role": "VIEWER",
+      "status": "INVITED",
+      "email": "patricia.souza@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-11",
+      "password": "paty1234"
+    },
+    {
+      "id": 16,
+      "name": "André Carvalho",
+      "username": "@andre",
+      "role": "MANAGER",
+      "status": "INACTIVE",
+      "email": "andre.carvalho@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-12",
+      "password": "andre2023"
+    },
+    {
+      "id": 17,
+      "name": "Beatriz Barbosa",
+      "username": "@beatriz",
+      "role": "ADMIN",
+      "status": "ACTIVE",
+      "email": "beatriz.barbosa@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-13",
+      "password": "bia12345"
+    },
+    {
+      "id": 18,
+      "name": "Ricardo Mendes",
+      "username": "@ricardo",
+      "role": "EDITOR",
+      "status": "SUSPENDED",
+      "email": "ricardo.mendes@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-14",
+      "password": "ricardo12"
+    },
+    {
+      "id": 19,
+      "name": "Clara Teixeira",
+      "username": "@clara",
+      "role": "VIEWER",
+      "status": "ACTIVE",
+      "email": "clara.teixeira@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-15",
+      "password": "clara2023"
+    },
+    {
+      "id": 20,
+      "name": "Bruno Nogueira",
+      "username": "@bruno",
+      "role": "MANAGER",
+      "status": "INVITED",
+      "email": "bruno.nogueira@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-16",
+      "password": "bruno123"
+    },
+    {
+      "id": 21,
+      "name": "Larissa Monteiro",
+      "username": "@larissa",
+      "role": "ADMIN",
+      "status": "ACTIVE",
+      "email": "larissa.monteiro@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-17",
+      "password": "lari2023"
+    },
+    {
+      "id": 22,
+      "name": "Fábio Ribeiro",
+      "username": "@fabio",
+      "role": "EDITOR",
+      "status": "INACTIVE",
+      "email": "fabio.ribeiro@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-18",
+      "password": "fabio2023"
+    },
+    {
+      "id": 23,
+      "name": "Sofia Cardoso",
+      "username": "@sofia",
+      "role": "VIEWER",
+      "status": "SUSPENDED",
+      "email": "sofia.cardoso@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-19",
+      "password": "sofia123"
+    },
+    {
+      "id": 24,
+      "name": "Marcos Cunha",
+      "username": "@marcos",
+      "role": "MANAGER",
+      "status": "ACTIVE",
+      "email": "marcos.cunha@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-20",
+      "password": "marcos2023"
+    },
+    {
+      "id": 25,
+      "name": "Isabela Duarte",
+      "username": "@isabela",
+      "role": "ADMIN",
+      "status": "INVITED",
+      "email": "isabela.duarte@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-21",
+      "password": "isa12345"
+    },
+    {
+      "id": 26,
+      "name": "Thiago Melo",
+      "username": "@thiago",
+      "role": "EDITOR",
+      "status": "ACTIVE",
+      "email": "thiago.melo@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-22",
+      "password": "thiago2023"
+    },
+    {
+      "id": 27,
+      "name": "Carolina Freitas",
+      "username": "@carolina",
+      "role": "VIEWER",
+      "status": "INACTIVE",
+      "email": "carolina.freitas@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-23",
+      "password": "carol2023"
+    },
+    {
+      "id": 28,
+      "name": "Rodrigo Azevedo",
+      "username": "@rodrigo",
+      "role": "MANAGER",
+      "status": "SUSPENDED",
+      "email": "rodrigo.azevedo@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-24",
+      "password": "rodrigo12"
+    },
+    {
+      "id": 29,
+      "name": "Helena Pires",
+      "username": "@helena",
+      "role": "ADMIN",
+      "status": "ACTIVE",
+      "email": "helena.pires@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-25",
+      "password": "helena2023"
+    },
+    {
+      "id": 30,
+      "name": "Eduardo Batista",
+      "username": "@eduardo",
+      "role": "EDITOR",
+      "status": "INVITED",
+      "email": "eduardo.batista@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-26",
+      "password": "edu12345"
+    },
+    {
+      "id": 31,
+      "name": "Natália Faria",
+      "username": "@natalia",
+      "role": "VIEWER",
+      "status": "ACTIVE",
+      "email": "natalia.faria@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-27",
+      "password": "naty2023"
+    },
+    {
+      "id": 32,
+      "name": "Vinícius Moreira",
+      "username": "@vinicius",
+      "role": "MANAGER",
+      "status": "INVITED",
+      "email": "vinicius.moreira@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-28",
+      "password": "vini1234"
+    },
+    {
+      "id": 33,
+      "name": "Letícia Moura",
+      "username": "@leticia",
+      "role": "ADMIN",
+      "status": "SUSPENDED",
+      "email": "leticia.moura@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-29",
+      "password": "leticia12"
+    },
+    {
+      "id": 34,
+      "name": "Henrique Lopes",
+      "username": "@henrique",
+      "role": "EDITOR",
+      "status": "ACTIVE",
+      "email": "henrique.lopes@aluno.riogrande.ifrs.edu.br",
+      "createdAt": "2023-03-30",
+      "password": "henrique23"
+    }
+  ]
+}

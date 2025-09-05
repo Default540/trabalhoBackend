@@ -1,0 +1,186 @@
+
+<%- include("includes/header.ejs", {link: ["/users/criar"]}) %>
+
+  <!-- Filters / Toolbar (static) -->
+   <form method="get">
+     <section class="mb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+       <div class="relative">
+         <input name="search" type="text" value="<%=dados.filter.search%>" placeholder="Search users..." class="filter w-full rounded-2xl border border-gray-300 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-4 focus:ring-gray-200" />
+         <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-gray-500"><path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 1 0 13.5 6.75 6.75 0 0 1 0-13.5Zm0 1.5a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5Zm8.03 13.28a.75.75 0 1 1-1.06 1.06l-3.25-3.25a.75.75 0 0 1 1.06-1.06l3.25 3.25Z" clip-rule="evenodd"/></svg>
+         </div>
+       </div>
+       <select name="role" class="filter rounded-2xl border border-gray-300 bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-4 focus:ring-gray-200">
+         <option value="ALL" <%= dados.filter.role === "ALL" ? 'selected': '' %>>All Roles</option>
+         <option value="ADMIN" <%= dados.filter.role === "ADMIN" ? 'selected': '' %>>Admin</option>
+         <option value="MANAGER" <%= dados.filter.role === "MANAGER" ? 'selected': '' %>>Manager</option>
+         <option value="EDITOR" <%= dados.filter.role === "EDITOR" ? 'selected': '' %>>Editor</option>
+         <option value="VIEWER" <%= dados.filter.role === "VIEWER" ? 'selected': '' %>>Viewer</option>
+       </select>
+       <select name="status" class="filter rounded-2xl border border-gray-300 bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-4 focus:ring-gray-200">
+         <option value="ANY" <%= dados.filter.status === "ANY" ? 'selected': '' %>>Any Status</option>
+         <option value="ACTIVE" <%= dados.filter.status === "ACTIVE" ? 'selected': '' %>>Active</option>
+         <option value="INVITED" <%= dados.filter.status === "INVITED" ? 'selected': '' %>>Invited</option>
+         <option value="SUSPENDED" <%= dados.filter.status === "SUSPENDED" ? 'selected': '' %>>Suspended</option>
+         <option value="INACTIVE" <%= dados.filter.status === "INACTIVE" ? 'selected': '' %>>Inactive</option>
+       </select>
+       <select name="sort" class="filter rounded-2xl border border-gray-300 bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-4 focus:ring-gray-200">
+         <option value="NEW" <%= dados.filter.sort === "NEW" ? 'selected': '' %>>Sort: Newest</option>
+         <option value="OLD" <%= dados.filter.sort === "OLD" ? 'selected': '' %>>Sort: Oldest</option>
+         <option value="A-Z" <%= dados.filter.sort === "A-Z" ? 'selected': '' %>>Sort: A → Z</option>
+         <option value="Z-A" <%= dados.filter.sort === "Z-A" ? 'selected': '' %>>Sort: Z → A</option>
+       </select>
+     </section>
+   </form>
+   
+   <script>
+    document.querySelectorAll(".filter").forEach(element => {
+      element.addEventListener("change", (e) => {
+        e.preventDefault();
+        document.querySelector("form").submit();
+      });
+    });
+   </script>
+
+  <!-- Users Table -->
+  <section class="bg-white border rounded-2xl shadow-sm">
+    <div class="overflow-x-auto rounded-2xl">
+      <table class="min-w-full text-left align-middle">
+        <thead class="bg-gray-50 text-xs uppercase tracking-wider text-gray-500">
+          <tr>
+            <th class="px-4 py-3">User</th>
+            <th class="px-4 py-3">Email</th>
+            <th class="px-4 py-3">Role</th>
+            <th class="px-4 py-3">Status</th>
+            <th class="px-4 py-3">Created</th>
+            <th class="px-4 py-3 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          
+          <% dados.users.forEach(user => { %>
+
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-3">
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex size-9 items-center justify-center rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold">
+
+                    <% let userNameArray = user.name.split(" "); %>
+
+                    <%= userNameArray[0].charAt(0).toUpperCase() + userNameArray[userNameArray.length - 1].charAt(0).toUpperCase() %>
+                  
+                  </span>
+                  <div>
+                    <div class="font-medium"><%= user.name %></div>
+                    <div class="text-xs text-gray-500"><%= user.username %></div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4 py-3"><%= user.email %></td>
+              <td class="px-4 py-3">
+                <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium"><%= user.role.charAt(0).toUpperCase()+(user.role.toLowerCase().slice(1)) %></span>
+              </td>
+              <td class="px-4 py-3">
+
+                
+                <% 
+
+                  let colors = {
+
+                    bg: "bg-gray-100",
+                    text: "text-gray-700",
+                    point: "bg-gray-500"
+                    
+                  };
+                
+                  if (user.status === "ACTIVE") {
+                    colors.bg = "bg-green-100";
+                    colors.text = "text-green-700";
+                    colors.point = "bg-green-700";
+                  } else if (user.status === "INVITED") {
+                    colors.bg = "bg-orange-100";
+                    colors.text = "text-orange-700";
+                    colors.point = "bg-orange-700";
+                  } else if (user.status === "SUSPENDED") {
+                    colors.bg = "bg-red-100";
+                    colors.text = "text-red-700";
+                    colors.point = "bg-red-700";
+                  }
+
+                %>
+
+                <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium <%= colors.text %> <%=colors.bg %>">
+                
+                <span class="size-1.5 rounded-full <%= colors.point %>"></span>
+                  <%= user.status.charAt(0).toUpperCase()+(user.status.toLowerCase().slice(1)) %>
+                </span>
+              </td>
+              <td class="px-4 py-3 text-sm text-gray-600"><%= user.createdAt %></td>
+              <td class="px-4 py-3">
+                <div class="flex items-center justify-end gap-2">
+                  <a href="/users/edit/<%= user.id %>" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-50">Edit</a>
+                  <form action="/users/delete" method="post">
+                    <button type="submit" name="id" value="<%= user.id %>" class="rounded-xl bg-red-50 px-3 py-1.5 text-sm text-red-700 hover:bg-red-100">Delete</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+
+          <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border-t bg-gray-50">
+      
+      <p class="text-sm text-gray-600">Showing 
+        
+        
+        <span class="font-medium">
+        
+        
+          <%= (dados.page.current - 1) * 10 + 1 %>–<%= dados.totalUsers <= dados.page.current * 10? dados.totalUsers : dados.page.current*10 %>
+        
+        
+        </span> of 
+        
+      
+        <span class="font-medium"><%= dados.totalUsers %></span> users</p>
+      
+      <nav class="inline-flex items-center gap-1">
+        <a href="/users/lista?search=<%=dados.filter.search%>&role=<%=dados.filter.role%>&status=<%=dados.filter.status%>&sort=<%=dados.filter.sort%>&page=<%= dados.page.current > 1? dados.page.current - 1: dados.page.current %>" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-100">Previous</a>
+        
+        <% 
+
+          let startPage = 1;
+          let endPage = dados.page.total;
+
+          if (dados.page.current <= 1) {
+            startPage = 1;
+            endPage = Math.min(3, dados.page.total);
+          }else if (dados.page.current >= dados.page.total) {
+            startPage = Math.max(1, dados.page.total - 2);
+            endPage = dados.page.total;
+          }else{
+
+            startPage = Math.max(1, dados.page.current - 1);
+            endPage = Math.min(dados.page.total, dados.page.current + 1);
+          }
+        
+        %>
+        
+        <% for (let index = startPage; index <= endPage; index++) { %>
+
+          <a href="/users/lista?search=<%=dados.filter.search%>&role=<%=dados.filter.role%>&status=<%=dados.filter.status%>&sort=<%=dados.filter.sort%>&page=<%= index %>" class="<%= index == dados.page.current? "bg-black text-white" : "border hover:bg-gray-100"%> rounded-xl px-3 py-1.5 text-sm"><%= index %></a>
+          
+
+        <% } %>
+
+
+        <a href="/users/lista?search=<%=dados.filter.search%>&role=<%=dados.filter.role%>&status=<%=dados.filter.status%>&sort=<%=dados.filter.sort%>&page=<%= dados.page.current < dados.page.total ? dados.page.current + 1 : dados.page.total %>" class="rounded-xl border px-3 py-1.5 text-sm hover:bg-gray-100">Next</a>
+      </nav>
+    </div>
+  </section>
+
+  <%- include("includes/footer.ejs") %>

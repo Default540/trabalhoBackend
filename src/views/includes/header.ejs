@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple User CRUD – Tailwind</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 antialiased">
+    
+    <header class="border-b bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-semibold tracking-tight" onclick="window.location.href='/'">User Management</h1>
+        <div class="flex items-center gap-2">
+          <button class="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2 text-sm font-medium hover:bg-gray-200" onclick="window.location.href='<%= link[0] %>'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4"><path d="M12 4.5a.75.75 0 0 1 .75.75v6h6a.75.75 0 0 1 0 1.5h-6v6a.75.75 0 0 1-1.5 0v-6h-6a.75.75 0 0 1 0-1.5h6v-6A.75.75 0 0 1 12 4.5Z"/></svg>
+            Add User
+          </button>
+          <button onclick="window.location.href = '/users/download'" class="inline-flex items-center gap-2 rounded-xl bg-black text-white px-3 py-2 text-sm font-medium hover:bg-gray-800">
+            Export
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-6xl mx-auto px-4 py-6">
+    
+    
+    
